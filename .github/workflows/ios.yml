@@ -24,6 +24,6 @@ jobs:
       - name: Build project
         run: |
           xcodebuild clean build \
-          -workspace tests.xcodeproj \
+          -project "tests.xcodeproj" \
           -sdk iphoneos \
           -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0'
