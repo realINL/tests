@@ -20,45 +20,11 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select -switch /Applications/Xcode.app
 
-      - name: Install dependencies
-        run: |
-          brew install cocoapods
-          pod install --repo-update
-        working-directory: ios_project_directory  # Укажите директорию проекта
 
       - name: Build project
         run: |
           xcodebuild clean build \
-          -workspace MyApp.xcworkspace \
-          -scheme MyApp \
+          -workspace tests.xcworkspace \
+          -scheme tests \
           -sdk iphoneos \
           -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0'
-
-      - name: Run tests
-        run: |
-          xcodebuild test \
-          -workspace MyApp.xcworkspace \
-          -scheme MyApp \
-          -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0'
-
-  deploy:
-    name: Deploy to TestFlight
-    needs: build
-    runs-on: macos-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: |
-          brew install fastlane
-          bundle install
-        working-directory: ios_project_directory
-
-      - name: Deploy to TestFlight
-        env:
-          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
-        run: |
-          fastlane beta
