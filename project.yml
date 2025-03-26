@@ -1,9 +1,9 @@
 name: tests
 options:
     bundleIdPrefix: inl.tests
-    xcodeVersion: "16.2"
+    xcodeVersion: "15.4"
     deploymentTarget:
-        iOS: "18.2"
+        iOS: "17.5"
 configs:
     Debug: debug
     Release: release
