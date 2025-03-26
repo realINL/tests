@@ -41,7 +41,7 @@ targets:
     tests:
         platform: iOS
         type: application
-        deploymentTarget: "18.2"
+        deploymentTarget: "17.5"
         sources: ["tests"]
         settings:
             base:
