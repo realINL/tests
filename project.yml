@@ -54,7 +54,7 @@ targets:
         platform: iOS
         type: bundle.unit-test
         deploymentTarget: "18.2"
-        sources: ["testsTests"]
+        sources: ["Tests"]
         dependencies:
             - target: tests
         settings:
