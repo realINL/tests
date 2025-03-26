@@ -49,8 +49,6 @@ targets:
             testTargets:
              - testsTests
         postBuildScripts:
-         - path: scripts/swiftlint_script.sh
-           name: SwiftLint
     testsTests:
         platform: iOS
         type: bundle.unit-test
