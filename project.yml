@@ -1,7 +1,6 @@
-name: tests
 options:
-    bundleIdPrefix: inl.tests
-    xcodeVersion: "16.2"
+    bundleIdPrefix: com.mariamayorova
+    xcodeVersion: "16.2»
     deploymentTarget:
         iOS: "18.2"
 configs:
@@ -10,24 +9,24 @@ configs:
     Staging Debug: debug
     Staging Release: release
 configFiles:
-    Debug: tests/configs/Dev.xcconfig
-    Release: tests/configs/Dev.xcconfig
-    Staging Debug: tests/configs/Staging.xcconfig
-    Staging Release: tests/configs/Staging.xcconfig
+    Debug: SiriusProject/configs/Dev.xcconfig
+    Release: SiriusProject/configs/Dev.xcconfig
+    Staging Debug: SiriusProject/configs/Staging.xcconfig
+    Staging Release: SiriusProject/configs/Staging.xcconfig
 schemes:
-    tests Staging:
+    SiriusProject Staging:
         build:
             targets:
-                tests: all
+                SiriusProject: all
         run:
             config: Staging Debug
         test:
             config: Staging Debug
             gatherCoverageData: true
             coverageTargets:
-                - tests
+                - SiriusProject
             targets:
-                - testsTests
+                - SiriusProject
         profile:
             config: Staging Release
         analyze:
@@ -38,25 +37,24 @@ schemes:
 settings:
 GENERATE_INFOPLIST_FILE: NO
 targets:
-    tests:
+    SiriusProject:
         platform: iOS
         type: application
-        deploymentTarget: "17.5"
-        sources: ["tests"]
+        deploymentTarget: "18.2"
+        sources: ["SiriusProject"]
         settings:
             base:
-                INFOPLIST_FILE: "tests/Info.plist"
+                INFOPLIST_FILE: "SiriusProject/Info.plist"
         scheme:
             testTargets:
-             - testsTests
-        postBuildScripts:
-    testsTests:
+             - SiriusProjectTests
+    SiriusProjectTests:
         platform: iOS
         type: bundle.unit-test
         deploymentTarget: "18.2"
-        sources: ["Tests"]
+        sources: ["SiriusProjectTests"]
         dependencies:
-            - target: tests
+            - target: SiriusProject
         settings:
             base:
-                INFOPLIST_FILE: "tests/Info.plist"
+                INFOPLIST_FILE: "SiriusProject/Info.plist"
