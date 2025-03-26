@@ -1,33 +1,28 @@
 name: tests
 options:
-    bundleIdPrefix: com.mariamayorova
+    bundleIdPrefix: inl.tests
     xcodeVersion: "16.2"
     deploymentTarget:
-        iOS: "17.2"
+        iOS: "17.5"
 configs:
     Debug: debug
     Release: release
     Staging Debug: debug
     Staging Release: release
-configFiles:
-    Debug: SiriusProject/configs/Dev.xcconfig
-    Release: SiriusProject/configs/Dev.xcconfig
-    Staging Debug: SiriusProject/configs/Staging.xcconfig
-    Staging Release: SiriusProject/configs/Staging.xcconfig
 schemes:
-    SiriusProject Staging:
+    tests Staging:
         build:
             targets:
-                SiriusProject: all
+                tests: all
         run:
             config: Staging Debug
         test:
             config: Staging Debug
             gatherCoverageData: true
             coverageTargets:
-                - SiriusProject
+                - tests
             targets:
-                - SiriusProject
+                - testsTests
         profile:
             config: Staging Release
         analyze:
@@ -38,24 +33,25 @@ schemes:
 settings:
 GENERATE_INFOPLIST_FILE: NO
 targets:
-    SiriusProject:
+    tests:
         platform: iOS
         type: application
-        deploymentTarget: "18.2"
-        sources: ["SiriusProject"]
+        deploymentTarget: "17.5"
+        sources: ["tests"]
         settings:
             base:
-                INFOPLIST_FILE: "SiriusProject/Info.plist"
+                INFOPLIST_FILE: "tests/Info.plist"
         scheme:
             testTargets:
-             - SiriusProjectTests
-    SiriusProjectTests:
+             - testsTests
+        postBuildScripts:
+    testsTests:
         platform: iOS
         type: bundle.unit-test
         deploymentTarget: "18.2"
-        sources: ["SiriusProjectTests"]
+        sources: ["Tests"]
         dependencies:
-            - target: SiriusProject
+            - target: tests
         settings:
             base:
-                INFOPLIST_FILE: "SiriusProject/Info.plist"
+                INFOPLIST_FILE: "tests/Info.plist"
