@@ -9,11 +9,6 @@ configs:
     Release: release
     Staging Debug: debug
     Staging Release: release
-configFiles:
-    Debug: tests/configs/Dev.xcconfig
-    Release: tests/configs/Dev.xcconfig
-    Staging Debug: tests/configs/Staging.xcconfig
-    Staging Release: tests/configs/Staging.xcconfig
 schemes:
     tests Staging:
         build:
