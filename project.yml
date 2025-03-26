@@ -2,7 +2,7 @@ options:
     bundleIdPrefix: com.mariamayorova
     xcodeVersion: "16.2»
     deploymentTarget:
-        iOS: "18.2"
+        iOS: "17.2"
 configs:
     Debug: debug
     Release: release
