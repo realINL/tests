@@ -1,3 +1,4 @@
+name: tests
 options:
     bundleIdPrefix: inl.tests
     xcodeVersion: "16.2"
