@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  tests
+//  SiriusProject
 //
-//  Created by Илья Лебедев on 26.03.2025.
+//  Created by Алексей Кобяков on 25.03.2025.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, Sirius!!!")
+            Text("somekey")
         }
         .padding()
     }
@@ -21,4 +21,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(\.locale, .init(identifier: "en"))
 }
